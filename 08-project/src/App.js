@@ -3,16 +3,21 @@ import AddUser from './components/Users/AddUser';
 
 import './App.css';
 import UserList from './components/Users/UserList';
-
-const USERS = [
-  {name: "name0", age: 25}
-]
+import { useState } from 'react';
 
 function App() {
+  const [users, setUsers] = useState([]);
+
+  const addUserHandler = (user)=>{
+    setUsers((prevList) => {
+      return [...prevList, user];
+    });
+  }
+
   return (
     <div>
-      <AddUser />
-      <UserList users = {USERS} />
+      <AddUser onNewUser={addUserHandler} />
+      <UserList users = {users} />
     </div>
   );
 }
