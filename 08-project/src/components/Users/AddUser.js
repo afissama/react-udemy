@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import ErrorModal from "../UI/ErrorModule";
@@ -8,6 +8,9 @@ const AddUser = (props) => {
   const [enteredUserName, setUserName] = useState("");
   const [enteredUserAge, setUserAge] = useState("");
   const [msgError, setmsgError] = useState();
+
+  const nameInputRef = useRef();
+  const ageInputRef = useRef();
 
   const addUserHandler = (event) => {
     event.preventDefault();
